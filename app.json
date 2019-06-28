@@ -1,0 +1,36 @@
+{
+  "pages": [
+    "pages/category/category",
+    "pages/webview/webview",
+    "pages/volume/volume"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "HelloGitHub",
+    "navigationBarBackgroundColor": "#2F85FC",
+    "backgroundColor": "#FFFFFF"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#2F85FC",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/category/category",
+        "iconPath": "static/home.png",
+        "selectedIconPath": "static/home-active.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/volume/volume",
+        "iconPath": "static/center.png",
+        "selectedIconPath": "static/center-active.png",
+        "text": "月刊"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}

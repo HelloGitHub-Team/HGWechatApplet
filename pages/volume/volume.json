@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "uni-media-list": "/components/uni-media-list/uni-media-list"
+  }
+}
