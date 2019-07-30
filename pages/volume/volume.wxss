@@ -1,6 +1,6 @@
 
 page {
-	background-color: #ffffff;
+	background-color: #FFFFFF;
 	height: 100%;
 	font-size: 11px;
 	line-height: 1.8;
@@ -24,7 +24,6 @@ page {
 }
 .uni-tab-bar .list {
 	width: 750rpx;
-	height: -webkit-calc(100% - 100rpx);
 	height: calc(100% - 100rpx);
 	margin-top: 100rpx;
 }
@@ -35,20 +34,20 @@ page {
 	height: 100rpx;
 	border-bottom: 1px solid #c8c7cc;
 	position: fixed;
-	background: #ffffff;
+	background: #FFFFFF;
 	z-index: 999;
 	top: 0px;
 	left: 0;
 }
 .swiper-tab-list {
 	font-size: 30rpx;
-	width: 130rpx;
+	width: 150rpx;
 	display: inline-block;
 	text-align: center;
 	color: #555;
 }
 .uni-tab-bar .active {
-	color: #007aff;
+	color: #007AFF;
 }
 .uni-tab-bar .swiper-box {
 	-webkit-box-flex: 1;
@@ -56,7 +55,6 @@ page {
 	    -ms-flex: 1;
 	        flex: 1;
 	width: 100%;
-	height: -webkit-calc(100% - 100rpx);
 	height: calc(100% - 100rpx);
 	overflow: scroll;
 }
@@ -64,6 +62,6 @@ page {
 	text-align: center;
 	padding: 20rpx 0;
 	font-size: 14px;
-	color: #cccccc;
+	color: #CCCCCC;
 }
 
