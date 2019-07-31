@@ -1,0 +1,25 @@
+
+.logo-box {
+	text-align: center;
+}
+.logo {
+	width: 100px;
+	height: 100px;
+}
+.liketab-box {
+	margin: 0 10px;
+}
+.liketab-cell {
+	margin-right: 10px;
+	margin-bottom: 10px;
+	display: inline-block;
+	background-color: gainsboro;
+
+	color: #FFFFFF;
+	padding: 5px;
+	border-radius: 5px;
+}
+.check-cell:checked {
+	background-color: cornflowerblue;
+}
+

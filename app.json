@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/liketab/liketab",
     "pages/category/category",
     "pages/detail/detail",
     "pages/ucenter/ucenter",
@@ -25,6 +26,12 @@
         "text": "分类"
       },
       {
+        "pagePath": "pages/liketab/liketab",
+        "iconPath": "static/image/liketab.png",
+        "selectedIconPath": "static/image/liketab_HL.png",
+        "text": "个性化"
+      },
+      {
         "pagePath": "pages/volume/volume",
         "iconPath": "static/image/volume.png",
         "selectedIconPath": "static/image/volume_HL.png",
@@ -33,5 +40,5 @@
     ]
   },
   "usingComponents": {},
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap85.json"
 }
