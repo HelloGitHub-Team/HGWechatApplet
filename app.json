@@ -4,7 +4,8 @@
     "pages/category/category",
     "pages/detail/detail",
     "pages/ucenter/ucenter",
-    "pages/volume/volume"
+    "pages/volume/volume",
+    "pages/character/character"
   ],
   "subPackages": [],
   "window": {
@@ -26,19 +27,18 @@
         "text": "分类"
       },
       {
-        "pagePath": "pages/liketab/liketab",
-        "iconPath": "static/image/liketab.png",
-        "selectedIconPath": "static/image/liketab_HL.png",
-        "text": "个性化"
-      },
-      {
         "pagePath": "pages/volume/volume",
         "iconPath": "static/image/volume.png",
         "selectedIconPath": "static/image/volume_HL.png",
         "text": "月刊"
+      },
+      {
+        "pagePath": "pages/character/character",
+        "iconPath": "static/image/character.png",
+        "selectedIconPath": "static/image/character_HL.png",
+        "text": "个性化"
       }
     ]
   },
-  "usingComponents": {},
-  "sitemapLocation": "sitemap85.json"
+  "usingComponents": {}
 }
