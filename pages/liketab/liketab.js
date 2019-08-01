@@ -146,10 +146,26 @@ var _default =
       buttonDisabled: true,
       buttonType: "default",
       likeTabs: [],
-      isActive: -1 };
+      isActive: -1,
+      myTabs: [] };
 
   },
   onLoad: function onLoad() {
+    uni.showLoading({
+      title: '加载中' });
+
+    if (uni.getStorageSync('likeTabsStatus')) {
+      uni.reLaunch({
+        url: '/pages/category/category' });
+
+    }
+    var value = uni.getStorageSync('likeTabs');
+    if (value) {
+      this.likeTabs = this.myTabs = value;
+      this.buttonText = "已选择 " + this.myTabs.length + " 个标签";
+      this.buttonDisabled = false;
+      this.buttonType = "primary";
+    }
     this.getCategory();
   },
   methods: {
@@ -182,25 +198,35 @@ var _default =
       uni.request({
         url: 'https://hellogithub.com//api/v1/category/',
         header: {
-          'Authorization': 'Basic Omk1Uk1jWmhKaGYwL0RPL1F1YlhOMG9WakpldmxlNmlh' },
+          'Authorization': 'Basic 14234234324324233432142424' },
 
         success: function success(result) {
+          uni.hideLoading();
           _this.items = result.data.payload;
           _this.items.forEach(function (item) {
             item['check'] = false;
             item['checkcss'] = "gainsboro";
+            if (_this.myTabs.includes(item.id.toString())) {
+              _this.$set(item, 'checked', true);
+              _this.$set(item, 'checkcss', "cornflowerblue");
+            } else {
+              _this.$set(item, 'checked', false);
+              _this.$set(item, 'checkcss', "gainsboro");
+            }
           });
         } });
 
     },
     getLikeTab: function getLikeTab() {
       uni.setStorageSync('likeTabs', this.likeTabs);
+      uni.setStorageSync('likeTabsStatus', true);
       uni.reLaunch({
         url: '/pages/category/category' });
 
     },
     goIndex: function goIndex() {
       uni.removeStorageSync('likeTabs');
+      uni.setStorageSync('likeTabsStatus', false);
       uni.reLaunch({
         url: '/pages/category/category' });
 
