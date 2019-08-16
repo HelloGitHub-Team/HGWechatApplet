@@ -1,0 +1,10 @@
+<view class="like-tab-con">
+  <image class="logo" src="../../static/image/logo.png" />
+  <rich-text class="des">分享 GitHub 上</rich-text>
+  <rich-text class="des">有趣、入门级的开源项目</rich-text>
+  <text class="choose-title">请选择感兴趣的标签</text>
+  <text class="choose-sub-title">我们将根据你的选择提供个性化推荐</text>
+  <view class="btn-con">
+    <view class="choose-btn {{choose-item: item.id=likeList}}" wx:for="{{list}}" >{{item.name}}</view>
+  </view>
+</view>

@@ -1,0 +1,50 @@
+.like-tab-con {
+  width: 750rpx;
+  height: auto;
+  text-align: center;
+}
+.like-tab-con .logo {
+  width: 150rpx;
+  height: 150rpx;
+}
+.like-tab-con .des {
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+.like-tab-con .choose-title {
+  display: block;
+  text-align: left;
+  padding: 0 0 0 40rpx;
+  width: 710rpx;
+  margin: 40rpx 0 5rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.like-tab-con .choose-sub-title {
+  display: block;
+  text-align: left;
+  padding: 0 0 0 40rpx;
+  width: 710rpx;
+  width: 750rpx;
+  font-size: 24rpx;
+  line-height: 40rpx;
+  color: #acaaaa;
+}
+.like-tab-con .btn-con {
+  padding: 20rpx 40rpx;
+  width: 670rpx;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  align-items: center;
+}
+.like-tab-con .btn-con .choose-btn {
+  padding: 10rpx 20rpx;
+  border-radius: 15rpx;
+  border: 1rpx solid #c6c6c6;
+  margin: 0 30rpx 20rpx 0;
+  font-size: 28rpx;
+  color: white;
+  background: #c6c6c6;
+}
