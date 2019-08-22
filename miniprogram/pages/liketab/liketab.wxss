@@ -42,9 +42,37 @@
 .like-tab-con .btn-con .choose-btn {
   padding: 10rpx 20rpx;
   border-radius: 15rpx;
-  border: 1rpx solid #c6c6c6;
   margin: 0 30rpx 20rpx 0;
   font-size: 28rpx;
   color: white;
   background: #c6c6c6;
+}
+.like-tab-con .btn-con .choose-item {
+  background: cornflowerblue;
+}
+.like-tab-con .bottom-con {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 670rpx;
+  padding: 20rpx 40rpx;
+}
+.like-tab-con .bottom-con .choose-detail {
+  padding: 10rpx 20rpx;
+  border-radius: 15rpx;
+  border: 1rpx solid #f6f6f6;
+  margin: 0 30rpx 20rpx 0;
+  font-size: 28rpx;
+  color: #d5d5d5;
+  background: #f5f5f5;
+}
+.like-tab-con .bottom-con .go {
+  margin-left: auto;
+  color: black;
+  border: 1rpx solid #d6d6d6;
+}
+.like-tab-con .bottom-con .has-tag {
+  background: #05cd05;
+  color: white;
 }

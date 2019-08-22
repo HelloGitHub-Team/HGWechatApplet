@@ -1,0 +1,17 @@
+.tab-list {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  height: 60rpx;
+  border-bottom: 1rpx solid black;
+  width: auto;
+  white-space: nowrap;
+}
+.tab-list .swiper-item {
+  display: inline-block;
+  height: 60rpx;
+  padding: 0 20rpx;
+  font-size: 28rpx;
+  color: #666;
+}

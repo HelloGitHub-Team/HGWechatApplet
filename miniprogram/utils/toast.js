@@ -4,7 +4,7 @@
  * @param {?Function=} cb 提示框消失时的回调函数
  * @param {?number=} seconds 提示框持续的时间，单位（秒）
  */
-function showTextToast(title, cb, seconds) {
+function showTextToast(title, seconds, cb ) {
     showToast({
         title: title,
         icon: 'none',
@@ -40,7 +40,7 @@ function showSuccessToast(title, cb, seconds) {
     showToast({
         title: title,
         icon: 'success',
-        mask: true,
+        mask: false,
         callback: cb,
         seconds: seconds
     })

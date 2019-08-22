@@ -1,0 +1,4 @@
+<scroll-view scroll-x="{{true}}" class="tab-list">
+  <view class="swiper-item" wx:for="{{tabList}}">{{item.name}}</view>
+  <slot></slot>
+</scroll-view>
