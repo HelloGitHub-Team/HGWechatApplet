@@ -15,3 +15,6 @@
   font-size: 28rpx;
   color: #666;
 }
+.tab-list .choose-item {
+  color: dodgerblue;
+}

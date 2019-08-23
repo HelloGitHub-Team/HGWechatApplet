@@ -19,17 +19,17 @@ Page({
       success: list => {
         const data = list.map((item, index) => {
           const rObj = item
-          if (tagData.indexOf(item) !== -1) {
-            rObj.selected = true
-          } else {
-            rObj.selected = false
-          }
+          tagData.map(item => {
+            if (item.id === rObj.id) {
+              rObj.selected = true
+            }
+          })
           return rObj
         })
         if (tagData && tagData.length !== data.length) {
           this.setData({
             list: data,
-            tagArr: tagData,
+            chooseArr: tagData,
             hasTag: true,
             detail: `已选择${tagData.length}/${data.length}个标签`
           })
