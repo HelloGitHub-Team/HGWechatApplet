@@ -1,5 +1,5 @@
 node_modules/
 dist/
-project.config.json
+/project.config.json
 /miniprogram/utils/config.js
 .DS_Store

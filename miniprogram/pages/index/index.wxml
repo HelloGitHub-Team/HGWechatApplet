@@ -1,5 +1,5 @@
 <!--index.wxml-->
 <view class="container">
-  <top-tab-list bind:projectData="getProjectList" tabList="{{tabList}}"></top-tab-list>
-  <project-list></project-list>
+  <top-tab-list class="tab-list" bind:projectData="getProjectList" tabList="{{tabList}}"></top-tab-list>
+  <project-list projectList="{{projectList}}"></project-list>
 </view>

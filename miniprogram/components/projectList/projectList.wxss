@@ -1,0 +1,17 @@
+.project-con {
+  width: 710rpx;
+  padding: 0 20rpx;
+}
+.project-con .project-list {
+  width: 710rpx;
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #cbc2c2;
+}
+.project-con .project-list .project-title {
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+.project-con .project-list .project-time {
+  font-size: 28rpx;
+  color: #a49999;
+}

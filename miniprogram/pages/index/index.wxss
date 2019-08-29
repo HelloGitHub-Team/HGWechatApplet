@@ -1,0 +1,10 @@
+.container {
+  width: 750rpx;
+  padding: 70rpx 0 0;
+}
+.container .tab-list {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
