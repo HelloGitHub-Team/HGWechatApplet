@@ -3,3 +3,4 @@ dist/
 /project.config.json
 /miniprogram/utils/config.js
 .DS_Store
+yarn.lock
