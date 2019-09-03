@@ -1,4 +1,4 @@
 <scroll-view scroll-x="{{true}}" class="tab-list">
-  <view class="swiper-item {{item.selected?'choose-item':''}}" wx:for="{{tabList}}" data-index="{{index}}" bindtap="chooseItem">{{item.name}}</view>
+  <view class="swiper-item {{item.selected?'choose-item':''}}" wx:for="{{tabList}}" wx:key="{{index}}" data-index="{{index}}" bindtap="chooseItem">{{item.name}}</view>
   <slot></slot>
 </scroll-view>

@@ -8,16 +8,23 @@
   "tabBar": {
     "list": [{
       "pagePath": "pages/index/index",
+      "iconPath": "static/image/category.png",
+      "selectedIconPath": "static/image/category_HL.png",
+      "selectedColor": "#78c0a8",
       "text": "分类"
     }, {
-      "pagePath": "pages/monthly/monthly"
+      "pagePath": "pages/monthly/monthly",
+      "iconPath": "static/image/volume.png",
+      "selectedIconPath": "static/image/volume_HL.png",
+      "selectedColor": "#78c0a8",
+      "text": "月刊"
     }]
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#78c0a8",
     "navigationBarTitleText": "HelloGitHub",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "white"
   },
   "sitemapLocation": "sitemap.json"
 }

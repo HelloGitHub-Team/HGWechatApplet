@@ -5,7 +5,7 @@
   <text class="choose-title">请选择感兴趣的标签</text>
   <text class="choose-sub-title">我们将根据你的选择提供个性化推荐</text>
   <view class="btn-con">
-    <view class="choose-btn {{item.selected?'choose-item':''}}" wx:for="{{list}}" bindtap="chooseTag" data-index="{{index}}">{{item.name}}</view>
+    <view class="choose-btn {{item.selected?'choose-item':''}}" wx:key="{{index}}" wx:for="{{list}}" bindtap="chooseTag" data-index="{{index}}">{{item.name}}</view>
   </view>
   <view class="bottom-con">
     <view class="choose-detail {{hasTag?'has-tag':''}}" bindtap="goClass">{{detail}}</view>

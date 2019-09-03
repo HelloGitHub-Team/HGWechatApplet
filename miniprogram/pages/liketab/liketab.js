@@ -14,7 +14,7 @@ Page({
   },
   // 初始化数据
   initPageData() {
-    const tagData = wx.getStorageSync('likeTag')
+    const tagData = wx.getStorageSync('likeTag') || []
     getCategory({
       success: list => {
         const data = list.map((item, index) => {
@@ -31,7 +31,7 @@ Page({
             list: data,
             chooseArr: tagData,
             hasTag: true,
-            detail: `已选择${tagData.length}/${data.length}个标签`
+            detail: `已选择 ${tagData.length} / ${data.length} 个标签`
           })
         } else {
           this.setData({
@@ -52,7 +52,7 @@ Page({
     tagArr.indexOf(item) !== -1 ? tagArr.splice(tagArr.indexOf(item), 1) : tagArr.push(item)
     if(this.data.chooseArr.length > 0) {
       this.data.hasTag = true
-      this.data.detail = `已选择${tagArr.length}/${this.data.list.length}标签`
+      this.data.detail = `已选择 ${tagData.length} / ${data.length} 个标签`
     } else {
       this.data.hasTag = false
       this.data.detail = '至少选择一个'

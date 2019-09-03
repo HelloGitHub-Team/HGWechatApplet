@@ -4,18 +4,31 @@
   justify-content: flex-start;
   align-items: center;
   height: 60rpx;
-  border-bottom: 1rpx solid black;
   width: auto;
   white-space: nowrap;
-  background: white;
+  background: #78c0a8;
   .swiper-item {
+    position: relative;
     display: inline-block;
     height: 60rpx;
+    line-height: 60rpx;
     padding: 0 20rpx;
     font-size: 28rpx;
-    color: #666
+    color: #ffffff;
   }
   .choose-item {
-    color: dodgerblue
+    font-size: 32rpx;
+    color: #fcebb6;
+  }
+  .choose-item:after {
+    // color: dodgerblue
+    content: '';
+    position: absolute;
+    left: 50%;
+    margin-left: -15px;
+    bottom: 0;
+    width: 30px;
+    height: 2px;
+    background: #fcebb6;
   }
 }
