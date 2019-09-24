@@ -6,10 +6,14 @@ HelloGitHub 官方微信小程序
 - TS
 - less (vscode 安装 Easy WXLESS 插件)
 
-Tips：协作须知（开发补充完成）
-
-## 安装步骤
-（开发补充完整）
+## 协作工作流
+1. git checkout dev（切到 dev 分支）
+2. git pull --rebase（保证 dev 代码是最新的状态）
+3. git checkout -b feature_xxx
+4. 开发功能
+5. 申请 code review 之前，在 feature 分支执行：git rebase dev 解决冲突后，申请 code review
+6. 开发完成，并 code review 完后 merge 到 dev
+7. 生产环境是 master 分支
 
 ## 项目结构
 
