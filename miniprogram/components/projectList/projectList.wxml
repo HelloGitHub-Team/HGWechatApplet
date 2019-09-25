@@ -1,7 +1,0 @@
-<view class="project-con">
-  <view class="project-list" wx:for="{{projectList}}" wx:key="{{index}}">
-    <view class="project-title">{{item.name}}</view>
-    <view class="project-desc">{{item.sort_desc}}</view>
-    <view class="project-time">{{item.category}} {{item.update_time}}</view>
-  </view>
-</view>

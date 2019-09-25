@@ -4,7 +4,7 @@
     "noImplicitAny": true,
     "module": "CommonJS",
     "target": "ES5",
-    "allowJs": false,
+    "allowJs": true,
     "experimentalDecorators": true,
     "noImplicitThis": true,
     "noImplicitReturns": true,
@@ -15,19 +15,17 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strict": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "removeComments": true,
     "pretty": true,
     "strictPropertyInitialization": true,
-    "typeRoots": [
-      "./typings"
-    ]
+    "typeRoots": ["./typings"],
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["src/*"]
+    }
   },
-  "include": [
-    "./miniprogram/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "miniprogram_dist",
-    "**/*.spec.ts"
-  ]
+  "include": ["./src/**/*.ts"],
+  "exclude": ["node_modules", "miniprogram_dist", "dist", "tools", "**/*.spec.ts", "gulpfile.js"]
 }

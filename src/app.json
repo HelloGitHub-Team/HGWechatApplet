@@ -1,0 +1,34 @@
+{
+  "pages": ["pages/home/index", "pages/project/index", "pages/monthly/index"],
+  "tabBar": {
+    "color": "#333333",
+    "selectedColor": "#2f85fc",
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/home/index",
+        "iconPath": "icons/bar-home.png",
+        "selectedIconPath": "icons/bar-home-active.png"
+      },
+      {
+        "text": "项目",
+        "pagePath": "pages/project/index",
+        "iconPath": "icons/bar-project.png",
+        "selectedIconPath": "icons/bar-project-active.png"
+      },
+      {
+        "text": "月刊",
+        "pagePath": "pages/monthly/index",
+        "iconPath": "icons/bar-monthly.png",
+        "selectedIconPath": "icons/bar-monthly-active.png"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "HelloGitHub",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}
