@@ -2,13 +2,14 @@ const del = require("del");
 const gulp = require("gulp");
 const log = require("fancy-log");
 const plumber = require("gulp-plumber");
+const util = require("util");
+const exec = util.promisify(require("child_process").exec);
 
 const less = require("gulp-less");
 const rename = require("gulp-rename");
 const postcss = require("gulp-postcss");
 const pxtransform = require("postcss-pxtransform");
 
-const ts = require("gulp-typescript");
 const insert = require("gulp-insert");
 const replace = require("gulp-replace");
 const jsonEditor = require("gulp-json-editor");
@@ -39,14 +40,11 @@ const paths = {
   }
 };
 
-function tsCompile() {
-  const tsProject = ts.createProject("tsconfig.json");
-  const tsResult = gulp
-    .src(paths.src.tsFiles)
-    .pipe(plumber())
-    .pipe(tsProject());
+async function tsCompile() {
+  const config = "tsconfig.json";
 
-  return tsResult.js.pipe(gulp.dest(paths.dist.baseDir));
+  await exec(`tsc -p ${config}`);
+  await exec(`tscpaths -p ${config} -s ./src -o ${paths.dist.baseDir}`);
 }
 
 function lessCompile() {
@@ -144,8 +142,8 @@ function watch() {
 
 exports.build = gulp.series(
   cleanDist,
-  buildProjectConfig,
-  gulp.parallel(copyStatic, wxmlCompile, tsCompile, lessCompile),
+  gulp.parallel(buildProjectConfig, copyStatic, wxmlCompile, lessCompile),
+  tsCompile,
   injectGlobalConfig
 );
 

@@ -9,7 +9,7 @@ HelloGitHub 官方微信小程序
 ## 技术栈
 
 - 原生小程序
-- TS
+- ES6 + TS
 - less
 
 ## 开始开发
@@ -20,6 +20,7 @@ HelloGitHub 官方微信小程序
 .
 ├── src                     // 源码
 │   ├── assets
+│   │   └── images          // 静态图片资源
 │   ├── icons               // 图标
 │   ├── pages               // 页面
 │   ├── styles              // 公共样式
@@ -45,7 +46,7 @@ HelloGitHub 官方微信小程序
 ├── tsconfig.json
 └── yarn.lock
 
-9 directories, 17 files
+10 directories, 17 files
 ```
 
 ### 准备工作
@@ -61,7 +62,7 @@ git clone https://github.com/HelloGitHub-Team/HGWechatApplet.git
 为确保项目正常运行，请按以下步骤完成本地开发配置：
 
 - 复制`.env`为`.env.local`
-- 根据管理员提供的账号信息修改`.env`中的相关配置
+- 根据管理员提供的账号信息修改`.env.local`中的相关配置
 
 注意： `.env`为隐藏文件
 
@@ -75,6 +76,7 @@ git clone https://github.com/HelloGitHub-Team/HGWechatApplet.git
 
 注意：
 
+- 请使用 `TypeScript` 或 `ES6` 进行编码！！！
 - 为确保协同开发的可控性，请不要直接在`master`或`dev`分支进行开发！
 
   本地开发应创建本地临时分支，如：`git checkout -b feature/xxx`
@@ -88,7 +90,8 @@ git clone https://github.com/HelloGitHub-Team/HGWechatApplet.git
 
 ### TODOS
 
-- [ ] 添加`代码规范`及`提交规范`
+- [x] 添加`代码规范`
+- [ ] 添加`提交规范` ???
 - [ ] 完善`开发文档`
 
 ## 声明

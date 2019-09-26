@@ -1,31 +1,18 @@
 {
   "compilerOptions": {
-    "strictNullChecks": true,
-    "noImplicitAny": true,
-    "module": "CommonJS",
-    "target": "ES5",
-    "allowJs": true,
-    "experimentalDecorators": true,
-    "noImplicitThis": true,
-    "noImplicitReturns": true,
-    "alwaysStrict": true,
-    "inlineSourceMap": true,
-    "inlineSources": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "strict": true,
-    "resolveJsonModule": true,
+    "module": "es6",
     "esModuleInterop": true,
-    "removeComments": true,
-    "pretty": true,
-    "strictPropertyInitialization": true,
+    "target": "es6",
+    "declaration": true,
+    "noImplicitAny": true,
+    "outDir": "dist",
+    "baseUrl": ".",
     "typeRoots": ["./typings"],
-    "baseUrl": "./",
+    "pretty": true,
     "paths": {
       "@/*": ["src/*"]
     }
   },
-  "include": ["./src/**/*.ts"],
-  "exclude": ["node_modules", "miniprogram_dist", "dist", "tools", "**/*.spec.ts", "gulpfile.js"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "miniprogram_dist", "dist", "tools", "**/*.spec.ts"]
 }
