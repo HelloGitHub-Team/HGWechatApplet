@@ -1,4 +1,3 @@
-const path = require("path");
 const del = require("del");
 const gulp = require("gulp");
 const log = require("fancy-log");
@@ -10,6 +9,7 @@ const postcss = require("gulp-postcss");
 const pxtransform = require("postcss-pxtransform");
 
 const ts = require("gulp-typescript");
+const insert = require("gulp-insert");
 const replace = require("gulp-replace");
 const jsonEditor = require("gulp-json-editor");
 
@@ -60,6 +60,13 @@ function lessCompile() {
   return gulp
     .src(paths.src.lessFiles)
     .pipe(plumber())
+    .pipe(
+      // 注入 less全局变量
+      insert.transform((contents /* , file */) => {
+        contents = `@import 'src/styles/variables.less';${contents}`;
+        return contents;
+      })
+    )
     .pipe(less())
     .pipe(postcss([pxtransform(transformOpt)]))
     .pipe(rename({ extname: ".wxss" })) // 修改后缀
@@ -74,6 +81,9 @@ function copyStatic() {
   return gulp.src(paths.src.staticFiles).pipe(gulp.dest(paths.dist.baseDir));
 }
 
+/**
+ * 生成`project.config.js`文件，同时修改appid
+ */
 function buildProjectConfig() {
   return (
     gulp
@@ -94,7 +104,7 @@ function injectGlobalConfig() {
   const config = {};
   const prefix = "APP_";
 
-  // 遍历环境变量，筛选指定内容，注入 config.json
+  // 遍历环境变量，筛选指定内容，注入到 config.json
   const keys = Object.keys(process.env).filter(key => key.startsWith(prefix));
   keys.forEach(key => {
     config[key] = process.env[key];
@@ -119,54 +129,24 @@ function cleanDist() {
   return del(paths.dist.baseDir);
 }
 
-function watch(callback) {
-  const watcher = gulp.watch([paths.src.baseDir, paths.src.projectConfigFile], { ignored: /[\/\\]\./ });
+function watch() {
+  const { tsFiles, wxmlFiles, lessFiles, lessDir, staticFiles, envFiles, projectConfigFile } = paths.src;
 
-  watcher.on("change", file => {
-    log.info(`File ${file} was changed`);
-    fileChangHandler(file);
-  });
+  gulp.watch(tsFiles, tsCompile);
+  gulp.watch(wxmlFiles, wxmlCompile);
+  gulp.watch(staticFiles, copyStatic);
+  gulp.watch(lessDir, lessCompile);
+  gulp.watch(lessFiles, lessCompile);
 
-  watcher.on("add", file => {
-    log.info(`File ${file} was added`);
-    fileChangHandler(file);
-  });
-
-  watcher.on("unlink", file => {
-    log.info(`File ${file} was removed`);
-    fileChangHandler(file);
-  });
-
-  callback && callback();
-}
-
-function fileChangHandler(file) {
-  if (file === paths.src.projectConfigFile) {
-    return buildProjectConfig();
-  }
-
-  if (file === paths.src.appGlobalConfigFile && paths.src.envFiles.includes(file)) {
-    return injectGlobalConfig();
-  }
-
-  const extname = path.extname(file);
-
-  switch (extname) {
-    case ".wxml":
-      wxmlCompile();
-      break;
-    case ".less":
-      lessCompile();
-      break;
-    case ".ts":
-      tsCompile();
-    default:
-      copyStatic();
-  }
+  gulp.watch(envFiles, injectGlobalConfig);
+  gulp.watch(projectConfigFile, buildProjectConfig);
 }
 
 exports.build = gulp.series(
-  gulp.series(cleanDist, buildProjectConfig, copyStatic, tsCompile, wxmlCompile, lessCompile, injectGlobalConfig)
+  cleanDist,
+  buildProjectConfig,
+  gulp.parallel(copyStatic, wxmlCompile, tsCompile, lessCompile),
+  injectGlobalConfig
 );
 
 exports.default = gulp.series(exports.build, watch);
