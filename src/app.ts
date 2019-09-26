@@ -1,12 +1,9 @@
-import baseConfig from "./config";
+import baseConfig from "@/config";
 
-export interface IMyApp {
+export interface MyApp {
   globalData: {};
 }
 
-App<IMyApp>({
-  onLaunch() {},
-  globalData: {
-    ...baseConfig
-  }
+App<MyApp>({
+  globalData: { ...baseConfig }
 });
