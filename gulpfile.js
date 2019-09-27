@@ -8,7 +8,6 @@ const exec = util.promisify(require("child_process").exec);
 const less = require("gulp-less");
 const rename = require("gulp-rename");
 const postcss = require("gulp-postcss");
-const pxtransform = require("postcss-pxtransform");
 
 const insert = require("gulp-insert");
 const replace = require("gulp-replace");
@@ -26,7 +25,7 @@ const paths = {
     lessDir: "src/styles",
     lessFiles: ["src/**/*.less", "!src/styles/**/*.less"],
     wxmlFiles: "src/**/*.wxml",
-    staticFiles: ["src/**/*.{png,js,json}", "!src/config.json"],
+    staticFiles: ["src/**/*.{png,jpg,jpeg,gif,js,json}", "!src/config.json"],
     envFiles: [".env", ".env.local"],
 
     // 项目配置文件
@@ -40,6 +39,9 @@ const paths = {
   }
 };
 
+// 路径映射规则
+const urlMaping = () => replace(/@(assets|icons)\//g, "/$1/");
+
 async function tsCompile() {
   const config = "tsconfig.json";
 
@@ -48,16 +50,10 @@ async function tsCompile() {
 }
 
 function lessCompile() {
-  /**
-   * postcss-pxtransform
-   *
-   * @link https://github.com/NervJS/taro/tree/master/packages/postcss-pxtransform
-   */
-  const transformOpt = { platform: "weapp", designWidth: 750 };
-
   return gulp
     .src(paths.src.lessFiles)
     .pipe(plumber())
+    .pipe(urlMaping())
     .pipe(
       // 注入 less全局变量
       insert.transform((contents /* , file */) => {
@@ -66,13 +62,16 @@ function lessCompile() {
       })
     )
     .pipe(less())
-    .pipe(postcss([pxtransform(transformOpt)]))
+    .pipe(postcss())
     .pipe(rename({ extname: ".wxss" })) // 修改后缀
     .pipe(gulp.dest(paths.dist.baseDir));
 }
 
 function wxmlCompile() {
-  return gulp.src(paths.src.wxmlFiles).pipe(gulp.dest(paths.dist.baseDir));
+  return gulp
+    .src(paths.src.wxmlFiles)
+    .pipe(urlMaping())
+    .pipe(gulp.dest(paths.dist.baseDir));
 }
 
 function copyStatic() {

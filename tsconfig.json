@@ -8,9 +8,13 @@
     "outDir": "dist",
     "baseUrl": ".",
     "typeRoots": ["./typings"],
-    "pretty": true,
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@assets/*": ["src/assets/*"],
+      "@icons/*": ["src/icons/*"],
+      "@utils/*": ["src/utils/*"],
+      "@styles/*": ["src/styles/*"],
+      "@components/*": ["src/components/*"]
     }
   },
   "include": ["src/**/*"],

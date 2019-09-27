@@ -1,3 +1,7 @@
 <view class="page page-home">
-  <text>首页</text>
+  <block>示例在："pages/home/index.wxml"</block>
+  <block>图片: src="@assets/images/logo.png"</block>
+  <view>
+    <cover-image src="@assets/images/logo.png" />
+  </view>
 </view>
