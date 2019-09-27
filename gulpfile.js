@@ -126,13 +126,29 @@ function cleanDist() {
   return del(paths.dist.baseDir);
 }
 
+async function scriptlint(cb) {
+  exec(`yarn lint:script`, function(err, stdout, stderr) {
+    log.info(stdout);
+    log.error(stderr);
+    cb(err);
+  });
+}
+
+async function stylelint(cb) {
+  exec(`yarn lint:style`, function(err, stdout, stderr) {
+    log.info(stdout);
+    log.error(stderr);
+    cb(err);
+  });
+}
+
 function watch() {
   const { tsFiles, wxmlFiles, lessFiles, lessDir, staticFiles, envFiles, projectConfigFile } = paths.src;
 
-  gulp.watch(tsFiles, tsCompile);
+  gulp.watch(tsFiles, gulp.series(scriptlint, tsCompile));
   gulp.watch(wxmlFiles, wxmlCompile);
   gulp.watch(staticFiles, copyStatic);
-  gulp.watch(lessDir, lessCompile);
+  gulp.watch(lessDir, gulp.series(stylelint, lessCompile));
   gulp.watch(lessFiles, lessCompile);
 
   gulp.watch(envFiles, injectGlobalConfig);
@@ -141,6 +157,8 @@ function watch() {
 
 exports.build = gulp.series(
   cleanDist,
+  stylelint,
+  scriptlint,
   gulp.parallel(buildProjectConfig, copyStatic, wxmlCompile, lessCompile),
   tsCompile,
   injectGlobalConfig
