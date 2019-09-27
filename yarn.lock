@@ -1236,6 +1236,14 @@ css-tree@1.0.0-alpha.33:
     mdn-data "2.0.4"
     source-map "^0.5.3"
 
+css-tree@1.0.0-alpha25:
+  version "1.0.0-alpha25"
+  resolved "https://registry.yarnpkg.com/css-tree/-/css-tree-1.0.0-alpha25.tgz#1bbfabfbf6eeef4f01d9108ff2edd0be2fe35597"
+  integrity sha512-XC6xLW/JqIGirnZuUWHXCHRaAjje2b3OIB0Vj5RIJo6mIi/AdJo30quQl5LxUl0gkXDIrTrFGbMlcZjyFplz1A==
+  dependencies:
+    mdn-data "^1.0.0"
+    source-map "^0.5.3"
+
 css-unit-converter@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/css-unit-converter/-/css-unit-converter-1.1.1.tgz#d9b9281adcfd8ced935bdbaba83786897f64e996"
@@ -1325,6 +1333,13 @@ csso@^3.5.1:
   integrity sha512-vrqULLffYU1Q2tLdJvaCYbONStnfkfimRxXNaGjxMldI0C7JPBC4rB1RyjhfdZ4m1frm8pM9uRPKH3d2knZ8gg==
   dependencies:
     css-tree "1.0.0-alpha.29"
+
+csso@~3.3.0:
+  version "3.3.1"
+  resolved "https://registry.yarnpkg.com/csso/-/csso-3.3.1.tgz#e069a8f52adcf53685a8a7374256ccbc22c6ce3e"
+  integrity sha512-OjETffCFB/OzwxVL3eF0+5tXOXCMukVO6rEUxlkIhscE1KRObyg+zMrLUbkPn9kxgBrFWicc37Gv5/22dOh5EA==
+  dependencies:
+    css-tree "1.0.0-alpha25"
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
@@ -3748,6 +3763,11 @@ mdn-data@2.0.4:
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-2.0.4.tgz#699b3c38ac6f1d728091a64650b65d388502fd5b"
   integrity sha512-iV3XNKw06j5Q7mi6h+9vbx23Tv7JkjEVgKHW4pimwyDGWm0OIQntJJ+u1C6mg6mK1EaTv42XQ7w76yuzH7M2cA==
 
+mdn-data@^1.0.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-1.2.0.tgz#eadd28b0f2d307cf27e71524609bfb749ebfc0b6"
+  integrity sha512-esDqNvsJB2q5V28+u7NdtdMg6Rmg4khQmAVSjUiX7BY/7haIv0K2yWM43hYp0or+3nvG7+UaTF1JHz31hgU1TA==
+
 mdn-data@~1.1.0:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/mdn-data/-/mdn-data-1.1.4.tgz#50b5d4ffc4575276573c4eedb8780812a8419f01"
@@ -4585,6 +4605,14 @@ postcss-convert-values@^4.0.1:
     postcss "^7.0.0"
     postcss-value-parser "^3.0.0"
 
+postcss-csso@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/postcss-csso/-/postcss-csso-3.0.0.tgz#7473e72f1ec9a098545e36cc93658153704d6881"
+  integrity sha512-5yvI9IMIJOofYqmYfn65ZTxxlYZ86jXzDMXwYqltx/kqGsSvHRw4gYkn5e/tCPPIgUeFP5MIhIkA02uoUEZsXA==
+  dependencies:
+    csso "~3.3.0"
+    postcss "^6.0.0"
+
 postcss-discard-comments@^4.0.2:
   version "4.0.2"
   resolved "https://registry.yarnpkg.com/postcss-discard-comments/-/postcss-discard-comments-4.0.2.tgz#1fbabd2c246bff6aaad7997b2b0918f4d7af4033"
@@ -4958,7 +4986,7 @@ postcss@^5.2.10:
     source-map "^0.5.6"
     supports-color "^3.2.3"
 
-postcss@^6.0.16:
+postcss@^6.0.0, postcss@^6.0.16:
   version "6.0.23"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-6.0.23.tgz#61c82cc328ac60e677645f979054eb98bc0e3324"
   integrity sha512-soOk1h6J3VMTZtVeVpv15/Hpdl2cBLX3CAw4TAbkpTJiNPk9YP/zWcD1ND+xEtvyuuvKzbxliTOIyvkSeSJ6ag==
