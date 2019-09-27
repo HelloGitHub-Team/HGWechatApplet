@@ -3,7 +3,7 @@
     "module": "es6",
     "esModuleInterop": true,
     "target": "es6",
-    "declaration": true,
+    "allowJs": true,
     "noImplicitAny": true,
     "outDir": "dist",
     "baseUrl": ".",
