@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "top-tab-list": "../../components/topTabList/topTabList",
-    "project-list": "../../components/projectList/projectList"
-  }
-}
