@@ -5,8 +5,6 @@ module.exports = {
       platform: "weapp",
       designWidth: 750
     },
-    cssnano: {
-      preset: "default"
-    }
+    "postcss-csso": {}
   }
 };
