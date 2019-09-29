@@ -7,7 +7,8 @@
     "noImplicitAny": true,
     "outDir": "dist",
     "baseUrl": ".",
-    "typeRoots": ["./typings"],
+    "lib": ["es5", "es6"],
+    "types": ["miniprogram-api-typings"],
     "paths": {
       "@/*": ["src/*"],
       "@assets/*": ["src/assets/*"],
