@@ -1,7 +1,34 @@
 <view class="page page-home">
-  <block>示例在："pages/home/index.wxml"</block>
-  <block>图片: src="@assets/images/logo.png"</block>
-  <view>
-    <cover-image src="@assets/images/logo.png" />
+  <view class="dalily-recommend" id="dc-cards">
+    <view class="content"
+      wx:for="{{ dalilyData }}"
+      wx:key="index"
+      wx:for-item="item"
+      data-index="{{ index }}"
+      style="{{ style }}"
+      bindtouchstart="touchStart"
+      bindtouchmove="touchMove"
+      bindtouchend="touchEnd"
+      style="{{ style[index] }}"
+    >
+      <view class="header">
+        <image src="@assets/images/dc_cover_image.jpeg" />
+        <view class="type">C++</view>
+        <view class="info">
+          <view class="date">
+            <text class="day">24</text>
+            <text class="month">09月</text>
+          </view>
+          <view class="other">【每日互动】：这里是没有人互动的每日互动互动问问题为什么呢这是为什么呢？</view>
+        </view>
+      </view>
+      <view class="body">
+        <text class="title">『 HelloGithub 每日推荐 』</text>
+        <view class="item">
+          <view class="p-name">{{ index + 1 }}. {{ item.projectName }}</view>
+          <view class="p-desc">{{ item.projectDesc }}</view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

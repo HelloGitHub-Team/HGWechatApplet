@@ -1,0 +1,127 @@
+.page-home {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.dalily-recommend {
+  position: relative;
+  // height: calc(~'100vh - 64px');
+  height: 1046px;
+  margin: 32px;
+  // 3d效果
+  -webkit-perspective: 1000px;
+  perspective: 1000px;
+  -webkit-perspective-origin: 50% 150%;
+  perspective-origin: 50% 150%;
+
+  .content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    // height: calc(~'100vh - 110px');
+    height: 1000px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 3px 4px 5px rgba(0, 0, 0, 0.2);
+    transform-style: preserve-3d;
+    transition-timing-function: 'ease';
+    transition-duration: .3s;
+    // opacity: 0;
+    // display: none;
+    &.display {
+      // display: block;
+      // opacity: 1;
+    }
+  }
+
+  .header {
+    width: 686px;
+    height: 66vh;
+
+    image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .info {
+      position: absolute;
+      top: 32px;
+      left: 32px;
+      color: #fff;
+    }
+
+    .date {
+      font-size: 66px;
+
+      .month {
+        margin-left: 10px;
+        font-size: 28px;
+      }
+    }
+
+    .other {
+      width: 60%;
+      margin: 32px auto;
+      font-size: 28px;
+    }
+
+    .type {
+      position: absolute;
+      top: 20px;
+      right: -56px;
+      z-index: 3;
+      width: 200px;
+      height: 56px;
+      color: #fff;
+      font-size: 28px;
+      line-height: 56px;
+      text-align: center;
+      background-color: #78c0a8;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+      transform: rotate(45deg);
+    }
+  }
+
+  .body {
+    font-size: 28px;
+    background: #fff;
+
+    .title {
+      display: block;
+      width: 100%;
+      height: 80px;
+      color: rgba(0, 0, 0, .85);
+      font-weight: bold;
+      font-size: 34px;
+      line-height: 80px;
+      text-align: right;
+    }
+
+    .item {
+      padding: 20px 30px;
+      font-size: 28px;
+
+      .p-name {
+        margin-bottom: 10px;
+        font-weight: 500;
+        font-size: 30px;
+      }
+
+      .p-desc {
+        display: -webkit-box;
+        overflow: hidden;
+        color: rgba(0, 0, 0, .6);
+        line-height: 1.5;
+        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+    }
+  }
+}
