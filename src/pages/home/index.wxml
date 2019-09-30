@@ -3,5 +3,6 @@
   <block>图片: src="@assets/images/logo.png"</block>
   <view>
     <cover-image src="@assets/images/logo.png" />
+    <van-button type='primary'>第三方插件按钮</van-button>
   </view>
 </view>

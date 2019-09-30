@@ -4,6 +4,7 @@ const log = require("fancy-log");
 const plumber = require("gulp-plumber");
 const util = require("util");
 const exec = util.promisify(require("child_process").exec);
+const gulpInstall = require("gulp-install");
 
 const less = require("gulp-less");
 const rename = require("gulp-rename");
@@ -28,6 +29,7 @@ const paths = {
     staticFiles: ["src/**/*.{png,jpg,jpeg,gif,js,json}", "!src/config.json"],
     envFiles: [".env", ".env.local"],
 
+    packageJson: "./package.json",
     // 项目配置文件
     projectConfigFile: "project.config.json",
     // 应用全局配置文件
@@ -90,6 +92,23 @@ function buildProjectConfig() {
       .pipe(jsonEditor({ miniprogramRoot: "./", appid: process.env.APPID }))
       .pipe(gulp.dest(paths.dist.baseDir))
   );
+}
+
+function buildProjectJson() {
+  return gulp
+    .src(paths.src.packageJson)
+    .pipe(
+      jsonEditor(json => {
+        const { name, version, dependencies } = json;
+        return { name, version, dependencies };
+      })
+    )
+    .pipe(gulp.dest(paths.dist.baseDir));
+}
+
+function installDependencies() {
+  const outputDir = paths.dist.baseDir;
+  return gulp.src(`package.json`, { cwd: outputDir, base: outputDir }).pipe(gulpInstall({ production: true }));
 }
 
 /**
@@ -159,7 +178,8 @@ exports.build = gulp.series(
   cleanDist,
   stylelint,
   scriptlint,
-  gulp.parallel(buildProjectConfig, copyStatic, wxmlCompile, lessCompile),
+  buildProjectJson,
+  gulp.parallel(buildProjectConfig, copyStatic, wxmlCompile, lessCompile, installDependencies),
   tsCompile,
   injectGlobalConfig
 );
