@@ -5,7 +5,7 @@
 }
 .dalily-recommend {
   position: relative;
-  height: 1046px;
+  height: calc(36vh);
   margin: 32px;
   -webkit-perspective: 1000px;
   perspective: 1000px;
@@ -19,7 +19,7 @@
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 1000px;
+  height: calc(-10vh);
   overflow: hidden;
   background: #fff;
   border-radius: 20px;

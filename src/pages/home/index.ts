@@ -24,9 +24,41 @@ Page({
         projectImgs: [
           'https://static.mdaren.cn/test2/b0836ff57fabff524a7265f639313dfd.png'
         ]
+      },
+      {
+        projectName: '项目名字4',
+        projectUrl: '项目Github地址',
+        projectDesc: '4项目描述描述描述可能很多字可能很多字项目描述描述描述可能很多字可能很多字项目描述描述描述可能很多字可能很多字',
+        projectImgs: [
+          'https://static.mdaren.cn/test2/b0836ff57fabff524a7265f639313dfd.png'
+        ]
+      },
+      {
+        projectName: '项目名字5',
+        projectUrl: '项目Github地址',
+        projectDesc: '5项目描述描述描述可能很多字可能很多字项目描述描述描述可能很多字可能很多字项目描述描述描述可能很多字可能很多字',
+        projectImgs: [
+          'https://static.mdaren.cn/test2/b0836ff57fabff524a7265f639313dfd.png'
+        ]
+      },
+      {
+        projectName: '项目名字6',
+        projectUrl: '项目Github地址',
+        projectDesc: '6项目描述描述描述可能很多字可能很多字项目描述描述描述可能很多字可能很多字项目描述描述描述可能很多字可能很多字',
+        projectImgs: [
+          'https://static.mdaren.cn/test2/b0836ff57fabff524a7265f639313dfd.png'
+        ]
+      },
+      {
+        projectName: '项目名字7',
+        projectUrl: '项目Github地址',
+        projectDesc: '7项目描述描述描述可能很多字可能很多字项目描述描述描述可能很多字可能很多字项目描述描述描述可能很多字可能很多字',
+        projectImgs: [
+          'https://static.mdaren.cn/test2/b0836ff57fabff524a7265f639313dfd.png'
+        ]
       }
     ],
-    style: '',
+    style: [],
     basicdata: {
       start: {},
       end: {}
@@ -59,7 +91,6 @@ Page({
       this.setData({
         el: res[0]
       })
-      console.log(res)
     })
   },
   onShow() {
@@ -108,6 +139,7 @@ Page({
     // 计算滑动值
     const tpw = 'temporaryData.poswidth'
     const tph = 'temporaryData.posheight'
+    const offsetWidthRatio = this.calcuOffsetWidthRatio()
     this.setData({
       [tpw]: this.data.basicdata.end.x - this.data.basicdata.start.x,
       [tph]: this.data.basicdata.end.y - this.data.basicdata.start.y
@@ -116,12 +148,11 @@ Page({
     const angleRatio = this.angleRatio()
     const tr = 'temporaryData.rotate'
     this.setData({
-      [tr]:  rotateDirection * this.data.offsetWidthRatio * 15 * angleRatio
+      [tr]:  rotateDirection * offsetWidthRatio * 15 * angleRatio
     })
     this.changeStyle()
   },
   touchEnd(e: any) {
-    console.log(e, 'end')
     const ta = 'temporaryData.animation'
     this.setData({
       [ta]: true
@@ -153,6 +184,7 @@ Page({
         [ts]: false
       })
     }
+    this.changeStyle()
   },
   nextTick () {
     // 记录最终滑动距离
@@ -185,23 +217,24 @@ Page({
   },
   // 样式生效
   changeStyle() {
-    this.setData({
-      style: []
-    })
+    const styleArr = this.data.style
     if (this.data.dalilyData.length > 0) {
       this.data.dalilyData.map((d: any, index: number) => {
-        if (index === 0) {
-          this.setData({
-            style: this.data.style.concat(this.transformIndex(index))
-          })
+        const style1 = this.transformIndex(index)
+        const style2 = this.transform(index)
+        if (style1 && style2) {
+          styleArr[index] = style1 + '; ' + style2
+        } else if (style1) {
+          styleArr[index] = style1
         } else {
-          this.setData({
-            style: this.data.style.concat(this.transform(index))
-          })
+          styleArr[index] = style2
         }
       })
+      this.setData({
+        style: styleArr
+      })
     }
-    console.log(this.data.style)
+    // console.log(this.data.style)
   },
   // 划出面积比例
   calcuOffsetRatio() {
@@ -221,6 +254,7 @@ Page({
   },
   // 非首页样式切换
   transform (index: number) {
+    console.log('in' + index)
     const currentPage = this.data.temporaryData.currentPage
     const length = this.data.dalilyData.length
     const lastPage = currentPage === 0 ? this.data.dalilyData.length - 1 : currentPage - 1
@@ -231,16 +265,19 @@ Page({
       return
     }
     if (this.inStack(index, currentPage)) {
+      console.log(11111)
       const perIndex = index - currentPage > 0 ? index - currentPage : index - currentPage + length
       style += 'opacity: 1; transform: translate3D(0,0,' + -1 * 30 * (perIndex - offsetRatio) + 'px' + '); z-index: ' + (visible - perIndex)
       style += '; transition-timing-function: ease; transition-duration: 300ms'
     } else if (index === lastPage) {
+      console.log(22222)
       style += 'transform: translate3D(' + this.data.temporaryData.lastPosWidth + 'px' + ',' + this.data.temporaryData.lastPosHeight + 'px' + ',0px) ' + 'rotate(' + this.data.temporaryData.lastRotate + 'deg)'
       style += '; opactiy: ' + this.data.temporaryData.lastOpacity
       style += '; z-index: ' + this.data.temporaryData.lastZindex
       style += '; transition-timing-function: ease; transition-duration: 300ms'
     } else {
-      style += 'z-index: 1; transform: translate3D(0,0,' + -1 * visible * 60 + 'px' + ')'
+      console.log(33333)
+      style += 'z-index: 1; display: none; opacity: 0; transform: translate3D(0,0,' + -1 * visible * 20 + 'px' + ')'
     }
     return style
   },
@@ -252,7 +289,7 @@ Page({
       style += '; opacity: ' + this.data.temporaryData.opacity
       style += '; z-index: 10'
       if (this.data.temporaryData.animation) {
-        style += 'transition-timing-function: ease; transition-diration: 300ms'
+        style += '; transition-timing-function: ease; transition-diration: 300ms'
       }
       return style
     }
@@ -282,5 +319,30 @@ Page({
       }
     }
     return stack.indexOf(index) >= 0
+  },
+  onTransitionEnd(e: any) {
+    const lastPage = this.data.temporaryData.currentPage === 0 ? this.data.dalilyData.length - 1 : this.data.temporaryData.currentPage - 1
+    // dom发生变化正在执行的动画滑动序列已经变为上一层
+    const index = e.target.dataset.index
+    if (this.data.temporaryData.swipe && index === lastPage) {
+      const ta = 'temporaryData.animation'
+      const tlw = 'temporaryData.lastPosWidth'
+      const tlh = 'temporaryData.lastPosHeight'
+      const tlo = 'temporaryData.lastOpacity'
+      const tlr = 'temporaryData.lastRotate'
+      const ts = 'temporaryData.swipe'
+      const tlz = 'temporaryData.lastZindex'
+
+      this.setData({
+        [ta]: true,
+        [tlw]: 0,
+        [tlh]: 0,
+        [tlo]: 0,
+        [tlr]: 0,
+        [ts]: false,
+        [tlz]: -1
+      })
+      this.changeStyle()
+    }
   }
 })

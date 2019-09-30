@@ -5,10 +5,10 @@
       wx:key="index"
       wx:for-item="item"
       data-index="{{ index }}"
-      style="{{ style }}"
       bindtouchstart="touchStart"
       bindtouchmove="touchMove"
       bindtouchend="touchEnd"
+      bindtransitionend="onTransitionEnd"
       style="{{ style[index] }}"
     >
       <view class="header">
