@@ -12,6 +12,7 @@
     "paths": {
       "@/*": ["src/*"],
       "@assets/*": ["src/assets/*"],
+      "@constant/*": ["src/constant/*"],
       "@icons/*": ["src/icons/*"],
       "@utils/*": ["src/utils/*"],
       "@styles/*": ["src/styles/*"],
