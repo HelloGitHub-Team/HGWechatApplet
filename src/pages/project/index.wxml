@@ -1,3 +1,21 @@
-<view class="page page-project">
-  <text>项目列表</text>
+<import src="./project-item.wxml" />
+<view class="page page-project" wx:if="{{ready}}">
+  <block wx:if="{{projects.length}}">
+    <van-tabs active="{{active}}" bind:change="switchCategory" sticky swipeable border>
+      <van-tab wx:for="{{categories}}" wx:key="{{cate.id}}" wx:for-item="cate" wx:for-index="idx" title="{{cate.name}}" name="{{idx}}" />
+    </van-tabs>
+    <scroll-view class="projects" scroll-y bindscrolltolower="loadMore">
+      <template is="project-item" wx:for="{{projects}}" wx:key="{{project.volume}}" wx:for-item="project" wx:for-index="idx" data="{{ ...project }}"></template>
+      <view class="loadmore">
+        <view wx:if="{{!has_more}}">已加载全部</view>
+        <view wx:elif="{{loadingmore}}">
+          <van-loading type="spinner" />
+        </view>
+      </view>
+    </scroll-view>
+  </block>
+  <empty wx:else full content="暂无数据" image="@assets/images/nodata-search.svg" />
+  <view class="subs-entry">
+    <van-button custom-class="fab-button" round type="info" icon="wap-nav" bind:click="gotoSubscription" />
+  </view>
 </view>

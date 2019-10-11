@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 192,
+  "navigationBarTitleText": "项目列表"
 }

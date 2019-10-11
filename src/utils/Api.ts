@@ -1,6 +1,7 @@
 import config from "@/config";
 import HttpClient, { Options } from "./HttpClient";
 import { API_SUCCESS_CODE } from "@constant/api";
+import { combineUrls } from "./url";
 
 interface ApiBaseResponse<T = any> {
   payload: T;
@@ -30,7 +31,7 @@ class Api {
 
       // GET 请求 参数格式化
       if (method === "GET" && data) {
-        config.url += `?q=${JSON.stringify(data)}`;
+        config.url = combineUrls(config.url, `?q=${JSON.stringify(data)}`);
         delete config.data;
       }
 

@@ -1,0 +1,33 @@
+<view class="page page-subscription">
+  <view class="panel">
+    <view class="panel__title">
+      <text>已订阅</text>
+    </view>
+    <view class="panel__content">
+      <view class="categories" wx:if="{{subscribed.length}}">
+        <view class="category" wx:for="{{subscribed}}" wx:for-item="cate" wx:key="cate.id" wx:for-index="idx" data-index="{{idx}}" bindtap="unsubscribe">
+          <van-tag round plain size="medium" type="primary">{{ cate.name }}</van-tag>
+        </view>
+      </view>
+      <empty wx:else content="点击下方标签以添加订阅" />
+    </view>
+  </view>
+  <view class="panel">
+    <view class="panel__title">
+      <text>更多分类</text>
+    </view>
+    <view class="panel__content">
+      <view class="categories" wx:if="{{unSubscribed.length}}">
+        <view class="category" wx:for="{{unSubscribed}}" wx:for-item="cate" wx:key="cate.id" wx:for-index="idx" data-index="{{idx}}" bindtap="subscribe">
+          <van-tag round plain size="medium">{{ cate.name }}</van-tag>
+        </view>
+      </view>
+      <empty wx:else content="暂无更多分类" />
+    </view>
+  </view>
+  <view class="submit-btn">
+    <van-button custom-class="fab-button" type="info" round loading="{{submitting}}" disabled="{{!changed || submitting}}" bind:click="submit">
+      完成
+    </van-button>
+  </view>
+</view>

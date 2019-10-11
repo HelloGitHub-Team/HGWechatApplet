@@ -1,8 +1,15 @@
 {
-  "pages": ["pages/home/index", "pages/project/index", "pages/monthly/index"],
+  "pages": [
+    "pages/home/index",
+    "pages/project/index",
+    "pages/monthly/index",
+    "pages/subscription/index"
+  ],
   "tabBar": {
     "color": "#333333",
+    "borderStyle": "white",
     "selectedColor": "#2f85fc",
+    "backgroundColor": "#ffffff",
     "list": [
       {
         "text": "首页",
@@ -25,10 +32,21 @@
     ]
   },
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "HelloGitHub",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": " HelloGitHub ",
+    "backgroundColor": "#ffffff",
+    "backgroundTextStyle": "dark"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "/miniprogram_npm/vant-weapp/button/index",
+    "van-tab": "/miniprogram_npm/vant-weapp/tab/index",
+    "van-tabs": "/miniprogram_npm/vant-weapp/tabs/index",
+    "van-icon": "/miniprogram_npm/vant-weapp/icon/index",
+    "van-tag": "/miniprogram_npm/vant-weapp/tag/index",
+    "van-loading": "/miniprogram_npm/vant-weapp/loading/index",
+
+    "empty": "/components/empty/index"
+  }
 }

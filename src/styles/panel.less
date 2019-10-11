@@ -1,0 +1,46 @@
+.panel {
+  margin: 1em 0;
+  font-size: @--font-size-base;
+
+  &__title {
+    position: relative;
+    margin-bottom: 1em;
+    padding-left: 1.5em;
+    color: @--color-text-regular;
+    font-weight: @--font-weight-primary;
+    font-size: @--font-size-medium;
+
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 0.8em;
+      display: block;
+      width: 4px;
+      height: 1em;
+      margin-top: -0.5em;
+      background-color: @--color-brand;
+      border-radius: 2px;
+      content: "";
+    }
+  }
+
+  &__sub-title {
+    margin-left: 1em;
+    color: @--color-text-secondary;
+    font-size: @--font-size-small;
+  }
+
+  &__actions {
+    position: absolute;
+    top: 0;
+    right: 1.5em;
+  }
+
+  &__content {
+    padding: 0 1.5em;
+
+    &.no-padding {
+      padding: 0;
+    }
+  }
+}

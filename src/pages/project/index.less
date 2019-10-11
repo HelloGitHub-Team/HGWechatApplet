@@ -1,0 +1,59 @@
+.projects {
+  height: calc(100vh - 44 * 2px);
+}
+
+.subs-entry {
+  position: fixed;
+  right: 48px;
+  bottom: 48px;
+}
+
+.project-card {
+  position: relative;
+  padding: 20px 1.5em;
+  font-size: @--font-size-base;
+  line-height: 1.5;
+  background-color: @--color-white;
+  border-bottom: 1px solid @--color-border-base;
+
+  &__title {
+    font-weight: @--font-weight-primary;
+
+    &::before {
+      margin-right: 0.3em;
+      font-size: @--font-size-large;
+      content: "#";
+    }
+  }
+
+  &__bd {
+    margin: 0.5em 0;
+    color: @--color-text-regular;
+  }
+
+  &__image {
+    width: 100%;
+    background-color: @--color-background-base;
+  }
+
+  &__ft {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: @--color-text-regular;
+    font-size: @--font-size-small;
+
+    .van-icon {
+      margin: 0 4px 0 0;
+    }
+  }
+
+  &__time {
+    font-size: @--font-size-mini;
+
+    .van-icon {
+      position: relative;
+      top: 4px;
+    }
+  }
+}
