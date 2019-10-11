@@ -1,0 +1,8 @@
+<view class="c-empty {{ full ? 'c-empty--fullpage': '' }}">
+  <block wx:if="{{image}}">
+    <image class="c-empty__image" src="{{image}}" alt="{{alt}}" />
+  </block>
+  <block wx:if="{{content}}">
+    <text class="c-empty__content">{{content}}</text>
+  </block>
+</view>
