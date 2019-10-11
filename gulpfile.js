@@ -26,7 +26,7 @@ const paths = {
     lessDir: "src/styles",
     lessFiles: ["src/**/*.less", "!src/styles/**/*.less"],
     wxmlFiles: "src/**/*.wxml",
-    staticFiles: ["src/**/*.{png,jpg,jpeg,gif,js,json}", "!src/config.json"],
+    staticFiles: ["src/**/*.{png,jpg,jpeg,gif,js,json,svg}", "!src/config.json"],
     envFiles: [".env", ".env.local"],
 
     packageJson: "./package.json",
@@ -164,13 +164,12 @@ async function stylelint(cb) {
 function watch() {
   const { tsFiles, wxmlFiles, lessFiles, lessDir, staticFiles, envFiles, projectConfigFile } = paths.src;
 
-  gulp.watch(tsFiles, gulp.series(scriptlint, tsCompile));
+  gulp.watch([tsFiles, ...envFiles], gulp.series(scriptlint, tsCompile, injectGlobalConfig));
   gulp.watch(wxmlFiles, wxmlCompile);
   gulp.watch(staticFiles, copyStatic);
   gulp.watch(lessDir, gulp.series(stylelint, lessCompile));
   gulp.watch(lessFiles, lessCompile);
 
-  gulp.watch(envFiles, injectGlobalConfig);
   gulp.watch(projectConfigFile, buildProjectConfig);
 }
 
