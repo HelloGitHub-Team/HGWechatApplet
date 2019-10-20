@@ -30,6 +30,7 @@
     "gulp-replace": "^1.0.0",
     "husky": "^3.0.5",
     "lint-staged": "^9.3.0",
+    "miniprogram-api-typings": "^2.8.3",
     "postcss-csso": "^3.0.0",
     "postcss-pxtransform": "^1.3.19",
     "stylelint": "^11.0.0",

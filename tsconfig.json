@@ -7,10 +7,13 @@
     "noImplicitAny": true,
     "outDir": "dist",
     "baseUrl": ".",
-    "typeRoots": ["./typings"],
+    "lib": ["es5", "es6"],
+    "types": ["miniprogram-api-typings"],
     "paths": {
       "@/*": ["src/*"],
       "@assets/*": ["src/assets/*"],
+      "@domains/*": ["src/domains/*"],
+      "@constant/*": ["src/constant/*"],
       "@icons/*": ["src/icons/*"],
       "@utils/*": ["src/utils/*"],
       "@styles/*": ["src/styles/*"],
@@ -18,5 +21,11 @@
     }
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "miniprogram_dist", "dist", "tools", "**/*.spec.ts"]
+  "exclude": [
+    "node_modules",
+    "miniprogram_dist",
+    "dist",
+    "tools",
+    "**/*.spec.ts"
+  ]
 }

@@ -1,0 +1,23 @@
+<template name="project-item">
+  <view class="project-card">
+    <view class="project-card__hd">
+      <text class="project-card__title">{{name}}</text>
+    </view>
+    <view class="project-card__bd">
+      <image class="project-card__image" wx:if="{{img_url}}" src="{{img_url}}" lazy-load="{{true}}" mode="widthFix" />
+      <view class="project-card__desc">{{sort_desc}}</view>
+    </view>
+    <view class="project-card__ft">
+      <view class="project-card__tag">
+        <van-tag plain>
+          <van-icon name="star" />
+          <text>{{ category }}</text>
+        </van-tag>
+      </view>
+      <view class="project-card__time">
+        <van-icon name="clock-o" />
+        <text>{{ update_time }}</text>
+      </view>
+    </view>
+  </view>
+</template>

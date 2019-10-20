@@ -5,9 +5,16 @@ view {
 }
 
 page {
+  // 可以通过 css变量 定制主题
+  --red: @--color-brand;
+
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   min-height: 100vh;
   background-color: @--color-background-base;
+}
+
+.page {
+  min-height: 100vh;
 }
